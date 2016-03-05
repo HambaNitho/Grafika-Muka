@@ -4,6 +4,7 @@
 #include <cmath>
 #include <vector>
 #include "point.hpp"
+#include "canvas.hpp"
 
 class bezier {
 public:

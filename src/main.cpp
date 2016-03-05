@@ -4,37 +4,150 @@
 using namespace std;
 
 int main() {
-  polygon p;
-  p.add_point(0, 0);
-  p.add_point(50, 20);
-  p.add_point(50, 30);
-  p.add_point(0, 50);
+  // Rambut
+  polygon rambut;
+  rambut.add_point(126,540);
+  rambut.add_point(126,483);
+  rambut.add_point(105,420);
+  rambut.add_point(147,329);
+  rambut.add_point(133,238);
+  rambut.add_point(329,126);
+  rambut.add_point(406,112);
+  rambut.add_point(574,147);
+  rambut.add_point(658,217);
+  rambut.add_point(672,280);
+  rambut.add_point(721,364);
+  rambut.add_point(735,511);
+  rambut.add_point(763,420);
+  rambut.add_point(749,280);
+  rambut.add_point(686,161);
+  rambut.add_point(588,84);
+  rambut.add_point(469,28);
+  rambut.add_point(357,28);
+  rambut.add_point(259,63);
+  rambut.add_point(161,126);
+  rambut.add_point(98,203);
+  rambut.add_point(56,315);
+  rambut.add_point(63,420);
+  rambut.add_point(84,490);
 
+  // Muka ganteng
+  polygon muka;
+  muka.add_point(161,735);
+  muka.add_point(189,784);
+  muka.add_point(217,833);
+  muka.add_point(259,882);
+  muka.add_point(308,917);
+  muka.add_point(371,931);
+  muka.add_point(427,938);
+  muka.add_point(483,938);
+  muka.add_point(532,924);
+  muka.add_point(588,903);
+  muka.add_point(637,861);
+  muka.add_point(679,798);
+  muka.add_point(707,721);
+  muka.add_point(721,644);
+  muka.add_point(721,560);
+  muka.add_point(735,511);
+  muka.add_point(721,364);
+  muka.add_point(672,280);
+  muka.add_point(658,217);
+  muka.add_point(574,147);
+  muka.add_point(476,126);
+  muka.add_point(413,112);
+  muka.add_point(329,126);
+  muka.add_point(133,238);
+  muka.add_point(147,329);
+  muka.add_point(105,420);
+  muka.add_point(126,483);//
+  muka.add_point(126,553);
+  muka.add_point(154,609);
 
-  polygon p2;
-  p2.add_point(30, 0);
-  p2.add_point(50, 50);
-  p2.add_point(30, 70);
-  p2.add_point(10, 50);
+  // Telinga
+  polygon telinga_kiri;
+  telinga_kiri.add_point(120,553);
+  telinga_kiri.add_point(70,532);
+  telinga_kiri.add_point(35,574);
+  telinga_kiri.add_point(42,630);
+  telinga_kiri.add_point(63,686);
+  telinga_kiri.add_point(105,728);
+  telinga_kiri.add_point(158,736);
+  telinga_kiri.add_point(140,665);
+  telinga_kiri.add_point(149,612);
+  polygon telinga_kanan;
+  telinga_kanan.add_point(737,520);
+  telinga_kanan.add_point(788,511);
+  telinga_kanan.add_point(809,560);
+  telinga_kanan.add_point(795,616);
+  telinga_kanan.add_point(774,679);
+  telinga_kanan.add_point(741,721);
+  telinga_kanan.add_point(713,700);
+  telinga_kanan.add_point(733,644);
+  telinga_kanan.add_point(725,560);
 
-  std::list<polygon> polygons;
-  polygons.push_back(p);
-  polygons.push_back(p2);
-  //drawer::get_instance()->add_polygon(p, 0xffff0000);
-  //drawer::get_instance()->add_polygon(p2, 0xffff00ff);
-  //drawer::get_instance()->draw();
+  // Kacamata
+  polygon kacamata_kiri;
+  kacamata_kiri.add_point(182,413);
+  kacamata_kiri.add_point(252,399);
+  kacamata_kiri.add_point(315,399);
+  kacamata_kiri.add_point(378,399);
+  kacamata_kiri.add_point(392,441);
+  kacamata_kiri.add_point(364,483);
+  kacamata_kiri.add_point(322,504);
+  kacamata_kiri.add_point(266,504);
+  kacamata_kiri.add_point(217,497);
+  kacamata_kiri.add_point(175,462);
+  polygon kacamata_kanan;
+  kacamata_kanan.add_point(448,413);
+  kacamata_kanan.add_point(504,385);
+  kacamata_kanan.add_point(560,371);
+  kacamata_kanan.add_point(623,378);
+  kacamata_kanan.add_point(672,406);
+  kacamata_kanan.add_point(665,448);
+  kacamata_kanan.add_point(630,469);
+  kacamata_kanan.add_point(588,476);
+  kacamata_kanan.add_point(539,483);
+  kacamata_kanan.add_point(497,483);
 
-  std::list<uint32_t> colors;
-  colors.push_back(0xffff0000);
-  colors.push_back(0xffff00ff);
+  // Hidung
+  polygon hidung;
+  hidung.add_point(420,413);
+  hidung.add_point(455,448);
+  hidung.add_point(469,497);
+  hidung.add_point(504,532);
+  hidung.add_point(532,581);
+  hidung.add_point(497,609);
+  hidung.add_point(448,609);
+  hidung.add_point(406,609);
+  hidung.add_point(357,609);
+  hidung.add_point(343,560);
+  hidung.add_point(371,518);
+  hidung.add_point(399,462);
 
-  std::vector<int> x_pos = p.scanline(50);
-  printf("%d\n",x_pos[0]);
+  // Mulut
+  polygon mulut;
+  mulut.add_point(315,707);
+  mulut.add_point(371,658);
+  mulut.add_point(427,644);
+  mulut.add_point(483,644);
+  mulut.add_point(525,658);
+  mulut.add_point(567,686);
+  mulut.add_point(546,721);
+  mulut.add_point(504,749);
+  mulut.add_point(462,756);
+  mulut.add_point(406,763);
+  mulut.add_point(364,749);
 
-  fillo f(polygons, colors);
-  f.fill_polygons();
+  rambut.draw_stroke(300, 100, color::rgb(255,0,0));
+  muka.draw_stroke(300, 100, color::rgb(0,255,0));
+  telinga_kiri.draw_stroke(300, 100, color::rgb(255,0,0));
+  telinga_kanan.draw_stroke(300, 100, color::rgb(255,0,0));
+  kacamata_kiri.draw_stroke(300, 100, color::rgb(255,0,0));
+  kacamata_kanan.draw_stroke(300, 100, color::rgb(255,0,0));
+  hidung.draw_stroke(300, 100, color::rgb(255,0,0));
+  mulut.draw_stroke(300, 100, color::rgb(255,0,0));
 
   canvas::get_instance()->render();
-  canvas::get_instance()->clear();
+
   return 0;
 }
