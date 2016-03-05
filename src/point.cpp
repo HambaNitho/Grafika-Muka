@@ -117,6 +117,7 @@ bool point::cmp_z(const point& p1, const point& p2) {
  * Prespective Projection
  *
  */
+/*
 point point::camera_tranform(point camera_position, double o_x, double o_y, double o_z) {
 
 	std::vector<std::vector<double> > M1(3, std::vector<double>(3));
@@ -166,3 +167,4 @@ point point::camera_tranform(point camera_position, double o_x, double o_y, doub
 	return to_return;
 
 }
+*/
