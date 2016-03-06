@@ -8,6 +8,7 @@
 #include "polygon.hpp"
 #include "point.hpp"
 #include "fill.hpp"
+#include "bezier.hpp"
 #include <list>
 
 #endif

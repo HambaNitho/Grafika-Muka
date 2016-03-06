@@ -32,36 +32,36 @@ int main() {
   rambut.add_point(84,490);
 
   // Muka ganteng
-  polygon muka;
-  muka.add_point(161,735);
-  muka.add_point(189,784);
-  muka.add_point(217,833);
-  muka.add_point(259,882);
-  muka.add_point(308,917);
-  muka.add_point(371,931);
-  muka.add_point(427,938);
-  muka.add_point(483,938);
-  muka.add_point(532,924);
-  muka.add_point(588,903);
-  muka.add_point(637,861);
-  muka.add_point(679,798);
-  muka.add_point(707,721);
-  muka.add_point(721,644);
-  muka.add_point(721,560);
-  muka.add_point(735,511);
-  muka.add_point(721,364);
-  muka.add_point(672,280);
-  muka.add_point(658,217);
-  muka.add_point(574,147);
-  muka.add_point(476,126);
-  muka.add_point(413,112);
-  muka.add_point(329,126);
-  muka.add_point(133,238);
-  muka.add_point(147,329);
-  muka.add_point(105,420);
-  muka.add_point(126,483);//
-  muka.add_point(126,553);
-  muka.add_point(154,609);
+  std::vector<point> muka;//polygon muka;
+  muka.push_back(point(161,735));
+  muka.push_back(point(189,784));
+  muka.push_back(point(217,833));
+  muka.push_back(point(259,882));
+  muka.push_back(point(308,917));
+  muka.push_back(point(371,931));
+  muka.push_back(point(427,938));
+  muka.push_back(point(483,938));
+  muka.push_back(point(532,924));
+  muka.push_back(point(588,903));
+  muka.push_back(point(637,861));
+  muka.push_back(point(679,798));
+  muka.push_back(point(707,721));
+  muka.push_back(point(721,644));
+  muka.push_back(point(721,560));
+  muka.push_back(point(735,511));
+  muka.push_back(point(721,364));
+  muka.push_back(point(672,280));
+  muka.push_back(point(658,217));
+  muka.push_back(point(574,147));
+  muka.push_back(point(476,126));
+  muka.push_back(point(413,112));
+  muka.push_back(point(329,126));
+  muka.push_back(point(133,238));
+  muka.push_back(point(147,329));
+  muka.push_back(point(105,420));
+  muka.push_back(point(126,483));//
+  muka.push_back(point(126,553));
+  muka.push_back(point(154,609));
 
   // Telinga
   polygon telinga_kiri;
@@ -139,7 +139,9 @@ int main() {
   mulut.add_point(364,749);
 
   rambut.draw_stroke(300, 100, color::rgb(255,0,0));
-  muka.draw_stroke(300, 100, color::rgb(0,255,0));
+  //muka.draw_stroke(300, 100, color::rgb(0,255,0));
+  bezier bez(muka);
+  bez.draw_bezier(bez.get_points(), 0xffffffff);
   telinga_kiri.draw_stroke(300, 100, color::rgb(255,0,0));
   telinga_kanan.draw_stroke(300, 100, color::rgb(255,0,0));
   kacamata_kiri.draw_stroke(300, 100, color::rgb(255,0,0));

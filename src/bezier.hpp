@@ -24,7 +24,7 @@ public:
 
 	void draw_bezier(std::vector<point> points, uint32_t color);
 	//void draw_bezier(uint32_t color);
-	
+	int* getPascalTriangle (int n);
 
 private:
 	std::vector<point> points;
