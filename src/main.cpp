@@ -33,7 +33,13 @@ int main() {
 
   // Muka ganteng
   std::vector<point> muka;//polygon muka;
-  muka.push_back(point(161,735));
+
+  muka.push_back(point(50,50));
+  muka.push_back(point(100,0));
+  muka.push_back(point(200,100));
+  muka.push_back(point(300,50));
+
+  /*muka.push_back(point(161,735));
   muka.push_back(point(189,784));
   muka.push_back(point(217,833));
   muka.push_back(point(259,882));
@@ -59,9 +65,9 @@ int main() {
   muka.push_back(point(133,238));
   muka.push_back(point(147,329));
   muka.push_back(point(105,420));
-  muka.push_back(point(126,483));//
+  muka.push_back(point(126,483));
   muka.push_back(point(126,553));
-  muka.push_back(point(154,609));
+  muka.push_back(point(154,609));*/
 
   // Telinga
   polygon telinga_kiri;
@@ -138,16 +144,23 @@ int main() {
   mulut.add_point(406,763);
   mulut.add_point(364,749);
 
-  rambut.draw_stroke(300, 100, color::rgb(255,0,0));
+
+  line l(point(50,50),point(300,50));
+  //l.draw();
+  //rambut.draw_stroke(300, 100, color::rgb(255,0,0));
   //muka.draw_stroke(300, 100, color::rgb(0,255,0));
   bezier bez(muka);
-  bez.draw_bezier(bez.get_points(), 0xffffffff);
-  telinga_kiri.draw_stroke(300, 100, color::rgb(255,0,0));
-  telinga_kanan.draw_stroke(300, 100, color::rgb(255,0,0));
-  kacamata_kiri.draw_stroke(300, 100, color::rgb(255,0,0));
-  kacamata_kanan.draw_stroke(300, 100, color::rgb(255,0,0));
-  hidung.draw_stroke(300, 100, color::rgb(255,0,0));
-  mulut.draw_stroke(300, 100, color::rgb(255,0,0));
+  float t = 0.01f;
+  while (t <= 1) {
+    bez.draw_bezier(bez.get_points(), t, 0xffffffff);
+    t += 0.01;
+  }
+  //telinga_kiri.draw_stroke(300, 100, color::rgb(255,0,0));
+  //telinga_kanan.draw_stroke(300, 100, color::rgb(255,0,0));
+  //kacamata_kiri.draw_stroke(300, 100, color::rgb(255,0,0));
+  //kacamata_kanan.draw_stroke(300, 100, color::rgb(255,0,0));
+  //hidung.draw_stroke(300, 100, color::rgb(255,0,0));
+  //mulut.draw_stroke(300, 100, color::rgb(255,0,0));
 
   canvas::get_instance()->render();
 

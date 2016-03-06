@@ -4,6 +4,7 @@
 #include <cmath>
 #include <vector>
 #include "point.hpp"
+#include "line.hpp"
 #include "canvas.hpp"
 
 class bezier {
@@ -22,7 +23,7 @@ public:
 	void delete_point(int position);
 	void move_point(int position, int delta_x = 0, int delta_y = 0, int delta_z = 0);
 
-	void draw_bezier(std::vector<point> points, uint32_t color);
+	void draw_bezier(std::vector<point> points, float t, uint32_t color);
 	//void draw_bezier(uint32_t color);
 	int* getPascalTriangle (int n);
 

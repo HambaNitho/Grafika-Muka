@@ -58,23 +58,19 @@ int * bezier::getPascalTriangle (int n) {
   return arr[n-1];
 }
 
-void bezier::draw_bezier(std::vector<point> points, uint32_t color) {
+void bezier::draw_bezier(std::vector<point> points, float t, uint32_t color) {
 	
 	int i, x, y;
-	float t = 0.01f;
-	int n = points.size();
-	int* pascal = getPascalTriangle(n);
-	
-	while (t <= 1) {
-		x = 0; y = 0;
-		for (i = 0; i < n; i++) {
-			x += points[i].get_x() * pascal[i] * pow((i - t),(n - i)) * pow(t, i);
-			y += points[i].get_y() * pascal[i] * pow((i - t),(n - i)) * pow(t, i);
+	if (points.size() == 1) {
+		canvas::get_instance()->draw_pixel(points[0].get_x(), points[0].get_y(), color);
+	} else {
+		std::vector<point> newpoints;
+		for (i = 0; i < points.size()-1; i++) {
+			x = (1 - t) * points[i].get_x() + t * points[i+1].get_x();
+			y = (1 - t) * points[i].get_y() + t * points[i+1].get_y();
+			newpoints.push_back(point(x, y));
 		}
-		canvas::get_instance()->draw_pixel(x, y, color);
-		t += 0.01;
+		draw_bezier(newpoints, t, color);
 	}
-
 }
 
-//void bezier::draw_bezier(uint32_t color);
