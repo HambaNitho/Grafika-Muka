@@ -1,66 +1,115 @@
 #include "face.hpp"
 
 face::face() {
+	reset();
+}
+	
+void face::draw_face() {
+	// Bezier
+	bezier Mulut_atas(mulut_atas);
+	bezier Mulut_bawah(mulut_bawah);
+	bezier Muka(muka);
+	bezier Rambut(rambut);
+	bezier Mata_kiri_atas(mata_kiri_atas);
+	bezier Mata_kanan_atas(mata_kanan_atas);
+	bezier Mata_kiri_bawah(mata_kiri_bawah);
+	bezier Mata_kanan_bawah(mata_kanan_bawah);
+
+	double t = 0.01f;
+	Mulut_atas.draw_bezier(Mulut_atas.get_points(), t, color::rgb(255,0,0));
+	Mulut_bawah.draw_bezier(Mulut_bawah.get_points(), t, color::rgb(255,0,0));
+	Muka.draw_bezier(Muka.get_points(), t, 0xffffffff);
+	Rambut.draw_bezier(Rambut.get_points(), t, 0xffffffff);
+	Mata_kiri_atas.draw_bezier(Mata_kiri_atas.get_points(), t, 0xffffffff);
+	Mata_kanan_atas.draw_bezier(Mata_kanan_atas.get_points(), t, 0xffffffff);
+	Mata_kiri_bawah.draw_bezier(Mata_kiri_bawah.get_points(), t, 0xffffffff);
+	Mata_kanan_bawah.draw_bezier(Mata_kanan_bawah.get_points(), t, 0xffffffff);
+
+	// Polygon
+	/*
+	telinga_kiri.draw_stroke(300, 100, color::rgb(255,0,0));
+	telinga_kanan.draw_stroke(300, 100, color::rgb(255,0,0));
+	hidung.draw_stroke(300, 100, color::rgb(255,0,0));*/
+}
+
+void face::smile() {
+	mulut_atas.clear();
+	mulut_atas.push_back(point(230,280));
+	mulut_atas.push_back(point(300,290));
+	mulut_atas.push_back(point(370,280));
+
+	mulut_bawah.clear();
+	mulut_bawah.push_back(point(230,280));
+	mulut_bawah.push_back(point(300,320));
+	mulut_bawah.push_back(point(370,280));
+}
+
+void face::sad() {
+	mata_kiri_atas.clear();
+	mata_kiri_atas.push_back(point(140,160));
+	mata_kiri_atas.push_back(point(180,110));
+	mata_kiri_atas.push_back(point(220,160));
+
+	mata_kiri_bawah.clear();
+	mata_kiri_bawah.push_back(point(140,160));
+	mata_kiri_bawah.push_back(point(180,190));
+	mata_kiri_bawah.push_back(point(220,160));
+
+	mata_kanan_atas.clear();
+	mata_kanan_atas.push_back(point(380,160));
+	mata_kanan_atas.push_back(point(420,110));
+	mata_kanan_atas.push_back(point(460,160));
+
+	mata_kanan_bawah.clear();
+	mata_kanan_bawah.push_back(point(380,160));
+	mata_kanan_bawah.push_back(point(420,190));
+	mata_kanan_bawah.push_back(point(460,160));
+
+	mulut_atas.clear();
+	mulut_atas.push_back(point(250,320));
+	mulut_atas.push_back(point(300,280));
+	mulut_atas.push_back(point(350,320));
+
+	mulut_bawah.clear();
+	mulut_bawah.push_back(point(250,320));
+	mulut_bawah.push_back(point(300,310));
+	mulut_bawah.push_back(point(350,320));
+}
+
+void face::shock() {
+	mulut_atas.clear();
+	mulut_atas.push_back(point(250,300));
+	mulut_atas.push_back(point(260,200));
+	mulut_atas.push_back(point(340,200));
+	mulut_atas.push_back(point(350,300));
+
+	mulut_bawah.clear();
+	mulut_bawah.push_back(point(250,300));
+	mulut_bawah.push_back(point(270,325));
+	mulut_bawah.push_back(point(300,325));
+	mulut_bawah.push_back(point(330,325));
+	mulut_bawah.push_back(point(350,300));
+}
+
+void face::reset() {
 	// Rambut
-	rambut.add_point(126,540);
-	rambut.add_point(126,483);
-	rambut.add_point(105,420);
-	rambut.add_point(147,329);
-	rambut.add_point(133,238);
-	rambut.add_point(329,126);
-	rambut.add_point(406,112);
-	rambut.add_point(574,147);
-	rambut.add_point(658,217);
-	rambut.add_point(672,280);
-	rambut.add_point(721,364);
-	rambut.add_point(735,511);
-	rambut.add_point(763,420);
-	rambut.add_point(749,280);
-	rambut.add_point(686,161);
-	rambut.add_point(588,84);
-	rambut.add_point(469,28);
-	rambut.add_point(357,28);
-	rambut.add_point(259,63);
-	rambut.add_point(161,126);
-	rambut.add_point(98,203);
-	rambut.add_point(56,315);
-	rambut.add_point(63,420);
-	rambut.add_point(84,490);
+	rambut.clear();
+	rambut.push_back(point(100,100));
+	rambut.push_back(point(200,0));
+	rambut.push_back(point(400,0));
+	rambut.push_back(point(500,100));
 
 	// Muka
+	muka.clear();
 	muka.push_back(point(100,100));
-	muka.push_back(point(150,200));
-	muka.push_back(point(300,50));
+	muka.push_back(point(100,160));
+	muka.push_back(point(110,300));
+	muka.push_back(point(200,500));
+	muka.push_back(point(300,580));
+	muka.push_back(point(400,500));
+	muka.push_back(point(490,300));
+	muka.push_back(point(500,160));
 	muka.push_back(point(500,100));
-	/*muka.push_back(point(161,735));
-	muka.push_back(point(189,784));
-	muka.push_back(point(217,833));
-	muka.push_back(point(259,882));
-	muka.push_back(point(308,917));
-	muka.push_back(point(371,931));
-	muka.push_back(point(427,938));
-	muka.push_back(point(483,938));
-	muka.push_back(point(532,924));
-	muka.push_back(point(588,903));
-	muka.push_back(point(637,861));
-	muka.push_back(point(679,798));
-	muka.push_back(point(707,721));
-	muka.push_back(point(721,644));
-	muka.push_back(point(721,560));
-	muka.push_back(point(735,511));
-	muka.push_back(point(721,364));
-	muka.push_back(point(672,280));
-	muka.push_back(point(658,217));
-	muka.push_back(point(574,147));
-	muka.push_back(point(476,126));
-	muka.push_back(point(413,112));
-	muka.push_back(point(329,126));
-	muka.push_back(point(133,238));
-	muka.push_back(point(147,329));
-	muka.push_back(point(105,420));
-	muka.push_back(point(126,483));
-	muka.push_back(point(126,553));
-	muka.push_back(point(154,609));*/
 
 	// Telinga
 	telinga_kiri.add_point(120,553);
@@ -83,28 +132,24 @@ face::face() {
 	telinga_kanan.add_point(733,644);
 	telinga_kanan.add_point(725,560);
 
-	// Kacamata
-	kacamata_kiri.add_point(182,413);
-	kacamata_kiri.add_point(252,399);
-	kacamata_kiri.add_point(315,399);
-	kacamata_kiri.add_point(378,399);
-	kacamata_kiri.add_point(392,441);
-	kacamata_kiri.add_point(364,483);
-	kacamata_kiri.add_point(322,504);
-	kacamata_kiri.add_point(266,504);
-	kacamata_kiri.add_point(217,497);
-	kacamata_kiri.add_point(175,462);
+	// Mata
+	mata_kiri_atas.clear();
+	mata_kiri_atas.push_back(point(140,150));
+	mata_kiri_atas.push_back(point(180,110));
+	mata_kiri_atas.push_back(point(220,150));
+	mata_kiri_bawah.clear();
+	mata_kiri_bawah.push_back(point(140,150));
+	mata_kiri_bawah.push_back(point(180,190));
+	mata_kiri_bawah.push_back(point(220,150));
 
-	kacamata_kanan.add_point(448,413);
-	kacamata_kanan.add_point(504,385);
-	kacamata_kanan.add_point(560,371);
-	kacamata_kanan.add_point(623,378);
-	kacamata_kanan.add_point(672,406);
-	kacamata_kanan.add_point(665,448);
-	kacamata_kanan.add_point(630,469);
-	kacamata_kanan.add_point(588,476);
-	kacamata_kanan.add_point(539,483);
-	kacamata_kanan.add_point(497,483);
+	mata_kanan_atas.clear();
+	mata_kanan_atas.push_back(point(380,150));
+	mata_kanan_atas.push_back(point(420,110));
+	mata_kanan_atas.push_back(point(460,150));
+	mata_kanan_bawah.clear();
+	mata_kanan_bawah.push_back(point(380,150));
+	mata_kanan_bawah.push_back(point(420,190));
+	mata_kanan_bawah.push_back(point(460,150));
 
 	// Hidung
 	hidung.add_point(420,413);
@@ -121,69 +166,13 @@ face::face() {
 	hidung.add_point(399,462);
 
 	// Mulut
-	mulut_atas.push_back(point(315,707));
-	mulut_atas.push_back(point(371,658));
-	mulut_atas.push_back(point(427,644));
-	mulut_atas.push_back(point(483,644));
-	mulut_atas.push_back(point(525,658));
-	mulut_atas.push_back(point(567,686));
-
-	mulut_tengah.push_back(point(315,707));
-	mulut_tengah.push_back(point(450,695));
-	mulut_tengah.push_back(point(567,686));
-
-	mulut_bawah.push_back(point(567,686));
-	mulut_bawah.push_back(point(546,721));
-	mulut_bawah.push_back(point(504,749));
-	mulut_bawah.push_back(point(462,756));
-	mulut_bawah.push_back(point(406,763));
-	mulut_bawah.push_back(point(364,749));
-	mulut_bawah.push_back(point(315,707));
-}
-	
-void face::draw_face() {
-	// Bezier
-	bezier Mulut_atas(mulut_atas);
-	bezier Mulut_tengah(mulut_tengah);
-	bezier Mulut_bawah(mulut_bawah);
-	bezier Muka(muka);
-	double t = 0.01f;
-	Mulut_atas.draw_bezier(Mulut_atas.get_points(), t, color::rgb(255,0,0));
-	Mulut_tengah.draw_bezier(Mulut_tengah.get_points(), t, color::rgb(255,0,0));
-	Mulut_bawah.draw_bezier(Mulut_bawah.get_points(), t, color::rgb(255,0,0));
-	Muka.draw_bezier(Muka.get_points(), t, 0xffffffff);
-
-	// Polygon
-	rambut.draw_stroke(300, 100, color::rgb(255,0,0));
-	telinga_kiri.draw_stroke(300, 100, color::rgb(255,0,0));
-	telinga_kanan.draw_stroke(300, 100, color::rgb(255,0,0));
-	kacamata_kiri.draw_stroke(300, 100, color::rgb(255,0,0));
-	kacamata_kanan.draw_stroke(300, 100, color::rgb(255,0,0));
-	hidung.draw_stroke(300, 100, color::rgb(255,0,0));
-}
-
-
-void face::smile() {
 	mulut_atas.clear();
-	mulut_tengah.clear();
+	mulut_atas.push_back(point(250,300));
+	mulut_atas.push_back(point(300,280));
+	mulut_atas.push_back(point(350,300));
+
 	mulut_bawah.clear();
-
-	mulut_atas.push_back(point(215,290));
-	mulut_atas.push_back(point(271,258));
-	mulut_atas.push_back(point(327,244));
-	mulut_atas.push_back(point(383,244));
-	mulut_atas.push_back(point(425,258));
-	mulut_atas.push_back(point(467,250));
-
-	mulut_tengah.push_back(point(215,290));
-	mulut_tengah.push_back(point(350,295));
-	mulut_tengah.push_back(point(467,250));
-
-	mulut_bawah.push_back(point(467,250));
-	mulut_bawah.push_back(point(446,321));
-	mulut_bawah.push_back(point(404,349));
-	mulut_bawah.push_back(point(362,356));
-	mulut_bawah.push_back(point(306,363));
-	mulut_bawah.push_back(point(264,349));
-	mulut_bawah.push_back(point(215,290));
+	mulut_bawah.push_back(point(250,300));
+	mulut_bawah.push_back(point(300,320));
+	mulut_bawah.push_back(point(350,300));
 }

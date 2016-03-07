@@ -13,17 +13,21 @@ public:
 	face();
 	void draw_face();
 	void smile();
+	void sad();
+	void shock();
+	void reset();
 
 private:
-	polygon rambut;
+	std::vector<point> rambut;
 	std::vector<point> muka;
 	polygon telinga_kiri;
 	polygon telinga_kanan;
-	polygon kacamata_kiri;
-	polygon kacamata_kanan;
+	std::vector<point> mata_kiri_atas;
+	std::vector<point> mata_kanan_atas;
+	std::vector<point> mata_kiri_bawah;
+	std::vector<point> mata_kanan_bawah;
 	polygon hidung;
 	std::vector<point> mulut_atas;
-	std::vector<point> mulut_tengah;
 	std::vector<point> mulut_bawah;
 };
 
