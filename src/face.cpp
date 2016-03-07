@@ -144,13 +144,11 @@ void face::draw_face() {
 	bezier Mulut_bawah(mulut_bawah);
 	bezier Muka(muka);
 	float t = 0.01f;
-	while (t <= 1) {
-		Mulut_atas.draw_bezier(Mulut_atas.get_points(), t, color::rgb(255,0,0));
-		Mulut_tengah.draw_bezier(Mulut_tengah.get_points(), t, color::rgb(255,0,0));
-		Mulut_bawah.draw_bezier(Mulut_bawah.get_points(), t, color::rgb(255,0,0));
-		//Muka.draw_bezier(Muka.get_points(), 0xffffffff);
+		Mulut_atas.draw_bezier(Mulut_atas.get_points(), color::rgb(255,0,0));
+		Mulut_tengah.draw_bezier(Mulut_tengah.get_points(), color::rgb(255,0,0));
+		Mulut_bawah.draw_bezier(Mulut_bawah.get_points(), color::rgb(255,0,0));
+		Muka.draw_bezier(Muka.get_points(), 0xffffffff);
 		t += 0.01;
-	}
 
 	// Polygon
 	rambut.draw_stroke(300, 100, color::rgb(255,0,0));

@@ -7,9 +7,11 @@ bezier::bezier() {
 	point p2(100, 0);
 	points.push_back(p1);
 	points.push_back(p2);
+	tolerance = 2;
 }
 bezier::bezier(std::vector<point> points) {
 	this->points = points;
+	tolerance = 2;
 }
 
 // Setter and getter
@@ -58,19 +60,38 @@ int * bezier::getPascalTriangle (int n) {
   return arr[n-1];
 }
 
-void bezier::draw_bezier(std::vector<point> points, float t, uint32_t color) {
+void bezier::recursive_bezier(std::vector<point> points, float t, uint32_t color) {
 	
 	int i, x, y;
 	if (points.size() == 1) {
 		canvas::get_instance()->draw_pixel(points[0].get_x(), points[0].get_y(), color);
+		b_points.push_back(point(points[0].get_x(), points[0].get_y()));
 	} else {
 		std::vector<point> newpoints;
 		for (i = 0; i < points.size()-1; i++) {
 			x = (1 - t) * points[i].get_x() + t * points[i+1].get_x();
 			y = (1 - t) * points[i].get_y() + t * points[i+1].get_y();
 			newpoints.push_back(point(x, y));
+			//b_points.push_back(point(x, y));
 		}
-		draw_bezier(newpoints, t, color);
+		recursive_bezier(newpoints, t, color);
 	}
 }
 
+
+void bezier::draw_bezier(std::vector<point> points, uint32_t color)
+{
+	double t = 0.01;
+	b_points.push_back(points[0]);
+	//recursive_bezier(points[0], points[1],
+	//       points[2], points[3], color);
+	while (t <= 1) {
+		recursive_bezier(points, t, color);
+		t += 0.01;
+	}
+	b_points.push_back(points[3]);
+	for (int i = 0; i < b_points.size(); i++) {
+		line l(b_points[i], b_points[(i+1) % b_points.size()]);
+		l.draw();
+	}
+}
