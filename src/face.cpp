@@ -28,7 +28,11 @@ face::face() {
 	rambut.add_point(84,490);
 
 	// Muka
-	muka.push_back(point(161,735));
+	muka.push_back(point(100,100));
+	muka.push_back(point(150,200));
+	muka.push_back(point(300,50));
+	muka.push_back(point(500,100));
+	/*muka.push_back(point(161,735));
 	muka.push_back(point(189,784));
 	muka.push_back(point(217,833));
 	muka.push_back(point(259,882));
@@ -56,7 +60,7 @@ face::face() {
 	muka.push_back(point(105,420));
 	muka.push_back(point(126,483));
 	muka.push_back(point(126,553));
-	muka.push_back(point(154,609));
+	muka.push_back(point(154,609));*/
 
 	// Telinga
 	telinga_kiri.add_point(120,553);
@@ -143,12 +147,11 @@ void face::draw_face() {
 	bezier Mulut_tengah(mulut_tengah);
 	bezier Mulut_bawah(mulut_bawah);
 	bezier Muka(muka);
-	float t = 0.01f;
-		Mulut_atas.draw_bezier(Mulut_atas.get_points(), color::rgb(255,0,0));
-		Mulut_tengah.draw_bezier(Mulut_tengah.get_points(), color::rgb(255,0,0));
-		Mulut_bawah.draw_bezier(Mulut_bawah.get_points(), color::rgb(255,0,0));
-		Muka.draw_bezier(Muka.get_points(), 0xffffffff);
-		t += 0.01;
+	double t = 0.01f;
+	Mulut_atas.draw_bezier(Mulut_atas.get_points(), t, color::rgb(255,0,0));
+	Mulut_tengah.draw_bezier(Mulut_tengah.get_points(), t, color::rgb(255,0,0));
+	Mulut_bawah.draw_bezier(Mulut_bawah.get_points(), t, color::rgb(255,0,0));
+	Muka.draw_bezier(Muka.get_points(), t, 0xffffffff);
 
 	// Polygon
 	rambut.draw_stroke(300, 100, color::rgb(255,0,0));
